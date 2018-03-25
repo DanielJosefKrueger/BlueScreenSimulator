@@ -1,10 +1,8 @@
 package de.darktech.bluescreen;
 
 
-
 import javax.swing.*;
 import java.awt.*;
-
 
 
 public class GraphicUtil {

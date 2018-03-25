@@ -2,12 +2,12 @@ package de.darktech.bluescreen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class BlueScreen extends JFrame {
 
 
-
-    public BlueScreen(){
+    public BlueScreen() {
         super();
         this.setLayout(null);
         this.setBackground(Color.blue);
@@ -15,11 +15,7 @@ public class BlueScreen extends JFrame {
         final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(dim);
         getContentPane().setBackground(Color.BLUE);
-
-
         JTextArea jtextArea = new JTextArea();
-
-       // jtextArea.setBounds(100, 100, this.getWidth()-200, this.getHeight()-200 );
         jtextArea.setText("A problem has been detected and windows has been shut down to prevent damage " +
                 "\nto your computer." +
                 "\n\nThe problem seems to ber caused by the following file: SPCMCON.SYS" +
@@ -29,7 +25,7 @@ public class BlueScreen extends JFrame {
                 "\nthese steps: " +
                 "\n\nCheck to make sure any new hardware or software is properly installed." +
                 "\nIf this is a new Installation, ask your hardware or software manufacturer." +
-                "\nfor any windows updates you might need."+
+                "\nfor any windows updates you might need." +
                 "\n\nIf the problems continue, disable or remove any newly installed hardware or" +
                 "\nsoftware. Disable BIOS Memory options such as caching or shadowing." +
                 "\nIf you need to use Safe Mode to remove or disable components, restart" +
@@ -39,18 +35,15 @@ public class BlueScreen extends JFrame {
                 "\n\nSTOP: 0x00000050 (0xFD3094C2, 0x00000001, 0xF8FE7617, 0x00000000)" +
                 "\n\nSPCMCON.SYS - Address FBFE7617 base at FBFE5000, Datestamp 3d6dd67c");
 
-        //jtextArea.setBounds(0,0,300,300);
-        jtextArea.setBounds(100, 100, this.getWidth()-200, this.getHeight()-200 );
+        jtextArea.setBounds(100, 100, this.getWidth() - 200, this.getHeight() - 200);
         jtextArea.setForeground(Color.white);
         jtextArea.setOpaque(false);
         jtextArea.setFont(new Font("Lucida Console", Font.PLAIN, 26));
+        jtextArea.setCursor(java.awt.Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR),new java.awt.Point(0,0),"NOCURSOR"));
 
-
-       // jtextArea.setFont(jtextArea.getFont().deriveFont(26f));
+        setCursor(java.awt.Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR),new java.awt.Point(0,0),"NOCURSOR"));
+        this.setAlwaysOnTop(true);
         this.add(jtextArea);
-
-
-
         this.setVisible(true);
     }
 
